@@ -13,6 +13,8 @@
 		0193469C1E0B5A1900D9053F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0193469A1E0B5A1900D9053F /* Main.storyboard */; };
 		0193469E1E0B5A1900D9053F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0193469D1E0B5A1900D9053F /* Assets.xcassets */; };
 		019346A11E0B5A1900D9053F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0193469F1E0B5A1900D9053F /* LaunchScreen.storyboard */; };
+		019346AA1E0B5ABD00D9053F /* ISOnDemandTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 019346A91E0B5ABD00D9053F /* ISOnDemandTableView.m */; };
+		019346B01E0B5F8F00D9053F /* ISOnDemandTableViewInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 019346AF1E0B5F8F00D9053F /* ISOnDemandTableViewInteractor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,11 @@
 		0193469D1E0B5A1900D9053F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		019346A01E0B5A1900D9053F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		019346A21E0B5A1900D9053F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		019346A81E0B5ABD00D9053F /* ISOnDemandTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISOnDemandTableView.h; sourceTree = "<group>"; };
+		019346A91E0B5ABD00D9053F /* ISOnDemandTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISOnDemandTableView.m; sourceTree = "<group>"; };
+		019346AE1E0B5F8F00D9053F /* ISOnDemandTableViewInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISOnDemandTableViewInteractor.h; sourceTree = "<group>"; };
+		019346AF1E0B5F8F00D9053F /* ISOnDemandTableViewInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISOnDemandTableViewInteractor.m; sourceTree = "<group>"; };
+		01E0872F1E0EBCF3001420E0 /* ISOnDemandTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISOnDemandTableViewCell.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +74,11 @@
 				0193469F1E0B5A1900D9053F /* LaunchScreen.storyboard */,
 				019346A21E0B5A1900D9053F /* Info.plist */,
 				019346911E0B5A1900D9053F /* Supporting Files */,
+				019346A81E0B5ABD00D9053F /* ISOnDemandTableView.h */,
+				019346A91E0B5ABD00D9053F /* ISOnDemandTableView.m */,
+				019346AE1E0B5F8F00D9053F /* ISOnDemandTableViewInteractor.h */,
+				019346AF1E0B5F8F00D9053F /* ISOnDemandTableViewInteractor.m */,
+				01E0872F1E0EBCF3001420E0 /* ISOnDemandTableViewCell.h */,
 			);
 			path = ISOnDemandTableView;
 			sourceTree = "<group>";
@@ -151,8 +163,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				019346991E0B5A1900D9053F /* ViewController.m in Sources */,
+				019346AA1E0B5ABD00D9053F /* ISOnDemandTableView.m in Sources */,
 				019346961E0B5A1900D9053F /* AppDelegate.m in Sources */,
 				019346931E0B5A1900D9053F /* main.m in Sources */,
+				019346B01E0B5F8F00D9053F /* ISOnDemandTableViewInteractor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +323,7 @@
 				019346A71E0B5A1900D9053F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
