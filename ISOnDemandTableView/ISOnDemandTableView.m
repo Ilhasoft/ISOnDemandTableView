@@ -66,6 +66,10 @@
 
 - (void)onPullToRefresh
 {
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width, 30.0)];
+    [spinner startAnimating];
+    spinner.color = [UIColor grayColor];
+    self.tableFooterView = spinner;
     [self.interactor refreshAllContent];
 }
 
@@ -75,13 +79,11 @@
         [NSException raise:@"ISOnDemandTableViewDelegateNotSet" format:@"You must set the ISOnDemandTableViewDelegate before calling loadContent"];
     }
     [self.interactor loadItems];
-    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width, 30.0)];
-//    spinner.backgroundColor = [UIColor blueColor];
-    if (self.interactor.hasMoreItems) {
+
+    if (self.interactor.hasMoreItems && self.tableFooterView == nil) {
+        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width, 30.0)];
         [spinner startAnimating];
         spinner.color = [UIColor grayColor];
-        UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width, 20.0)];
-        footerView.backgroundColor = [UIColor redColor];
         self.tableFooterView = spinner;
     }
 }
@@ -156,7 +158,9 @@
     if (compatRefreshControl.isRefreshing) {
         [compatRefreshControl endRefreshing];
     }
-    self.tableFooterView = nil;
+    if (lastObjects.count < self.interactor.paginationCount) {
+        self.tableFooterView = nil;
+    }
     [self.onDemandTableViewDelegate onContentLoadFinishedWithError:error];
     if (error == nil) {
         [self reloadData];
