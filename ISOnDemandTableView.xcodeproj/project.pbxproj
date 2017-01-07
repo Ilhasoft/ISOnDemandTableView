@@ -8,24 +8,37 @@
 
 /* Begin PBXBuildFile section */
 		0193469E1E0B5A1900D9053F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0193469D1E0B5A1900D9053F /* Assets.xcassets */; };
+		01BF70591E21385700B0D33A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BF70571E21385700B0D33A /* MainViewController.swift */; };
+		01BF705A1E21385700B0D33A /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BF70581E21385700B0D33A /* MainViewController.xib */; };
+		01BF70601E213AD300B0D33A /* ISOnDemandTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF705E1E213AD300B0D33A /* ISOnDemandTableView.m */; };
+		01BF70611E213AD300B0D33A /* ISOnDemandTableViewInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF705F1E213AD300B0D33A /* ISOnDemandTableViewInteractor.m */; };
+		01BF70631E214FBA00B0D33A /* CustomTableViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BF70621E214FBA00B0D33A /* CustomTableViewInteractor.swift */; };
+		01BF70661E21504500B0D33A /* SimpleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BF70641E21504500B0D33A /* SimpleTableViewCell.swift */; };
+		01BF70671E21504500B0D33A /* SimpleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BF70651E21504500B0D33A /* SimpleTableViewCell.xib */; };
 		01E0875C1E11EC64001420E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E0875B1E11EC64001420E0 /* AppDelegate.m */; };
-		01E0875F1E11ECBE001420E0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E0875E1E11ECBE001420E0 /* ViewController.m */; };
 		01E087621E11ED31001420E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E087611E11ED31001420E0 /* main.m */; };
 		01E087671E11ED6A001420E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01E087631E11ED6A001420E0 /* LaunchScreen.storyboard */; };
-		01E087681E11ED6A001420E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01E087651E11ED6A001420E0 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0193468E1E0B5A1900D9053F /* ISOnDemandTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ISOnDemandTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0193469D1E0B5A1900D9053F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		019346A21E0B5A1900D9053F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01BF70561E21385700B0D33A /* ISOnDemandTableView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ISOnDemandTableView-Bridging-Header.h"; sourceTree = "<group>"; };
+		01BF70571E21385700B0D33A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Example/MainViewController.swift; sourceTree = "<group>"; };
+		01BF70581E21385700B0D33A /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = Example/MainViewController.xib; sourceTree = "<group>"; };
+		01BF705B1E213AD300B0D33A /* ISOnDemandTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISOnDemandTableView.h; sourceTree = "<group>"; };
+		01BF705C1E213AD300B0D33A /* ISOnDemandTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISOnDemandTableViewCell.h; sourceTree = "<group>"; };
+		01BF705D1E213AD300B0D33A /* ISOnDemandTableViewInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISOnDemandTableViewInteractor.h; sourceTree = "<group>"; };
+		01BF705E1E213AD300B0D33A /* ISOnDemandTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISOnDemandTableView.m; sourceTree = "<group>"; };
+		01BF705F1E213AD300B0D33A /* ISOnDemandTableViewInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISOnDemandTableViewInteractor.m; sourceTree = "<group>"; };
+		01BF70621E214FBA00B0D33A /* CustomTableViewInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTableViewInteractor.swift; path = Example/CustomTableViewInteractor.swift; sourceTree = "<group>"; };
+		01BF70641E21504500B0D33A /* SimpleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleTableViewCell.swift; path = Example/SimpleTableViewCell.swift; sourceTree = "<group>"; };
+		01BF70651E21504500B0D33A /* SimpleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SimpleTableViewCell.xib; path = Example/SimpleTableViewCell.xib; sourceTree = "<group>"; };
 		01E0875A1E11EC64001420E0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Example/AppDelegate.h; sourceTree = "<group>"; };
 		01E0875B1E11EC64001420E0 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Example/AppDelegate.m; sourceTree = "<group>"; };
-		01E0875D1E11ECBE001420E0 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Example/ViewController.h; sourceTree = "<group>"; };
-		01E0875E1E11ECBE001420E0 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Example/ViewController.m; sourceTree = "<group>"; };
 		01E087611E11ED31001420E0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Example/main.m; sourceTree = "<group>"; };
 		01E087641E11ED6A001420E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Example/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		01E087661E11ED6A001420E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Example/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +72,11 @@
 		019346901E0B5A1900D9053F /* ISOnDemandTableView */ = {
 			isa = PBXGroup;
 			children = (
+				01BF705B1E213AD300B0D33A /* ISOnDemandTableView.h */,
+				01BF705C1E213AD300B0D33A /* ISOnDemandTableViewCell.h */,
+				01BF705D1E213AD300B0D33A /* ISOnDemandTableViewInteractor.h */,
+				01BF705E1E213AD300B0D33A /* ISOnDemandTableView.m */,
+				01BF705F1E213AD300B0D33A /* ISOnDemandTableViewInteractor.m */,
 				0193469D1E0B5A1900D9053F /* Assets.xcassets */,
 				019346A21E0B5A1900D9053F /* Info.plist */,
 			);
@@ -69,12 +87,15 @@
 			isa = PBXGroup;
 			children = (
 				01E087631E11ED6A001420E0 /* LaunchScreen.storyboard */,
-				01E087651E11ED6A001420E0 /* Main.storyboard */,
 				01E087601E11ED1B001420E0 /* Supporting Files */,
-				01E0875D1E11ECBE001420E0 /* ViewController.h */,
-				01E0875E1E11ECBE001420E0 /* ViewController.m */,
 				01E0875A1E11EC64001420E0 /* AppDelegate.h */,
 				01E0875B1E11EC64001420E0 /* AppDelegate.m */,
+				01BF70571E21385700B0D33A /* MainViewController.swift */,
+				01BF70581E21385700B0D33A /* MainViewController.xib */,
+				01BF70561E21385700B0D33A /* ISOnDemandTableView-Bridging-Header.h */,
+				01BF70621E214FBA00B0D33A /* CustomTableViewInteractor.swift */,
+				01BF70641E21504500B0D33A /* SimpleTableViewCell.swift */,
+				01BF70651E21504500B0D33A /* SimpleTableViewCell.xib */,
 			);
 			name = Example;
 			sourceTree = "<group>";
@@ -118,6 +139,7 @@
 				TargetAttributes = {
 					0193468D1E0B5A1900D9053F = {
 						CreatedOnToolsVersion = 8.2;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -145,9 +167,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01E087681E11ED6A001420E0 /* Main.storyboard in Resources */,
 				01E087671E11ED6A001420E0 /* LaunchScreen.storyboard in Resources */,
+				01BF70671E21504500B0D33A /* SimpleTableViewCell.xib in Resources */,
 				0193469E1E0B5A1900D9053F /* Assets.xcassets in Resources */,
+				01BF705A1E21385700B0D33A /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,9 +181,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01E0875F1E11ECBE001420E0 /* ViewController.m in Sources */,
+				01BF70611E213AD300B0D33A /* ISOnDemandTableViewInteractor.m in Sources */,
 				01E087621E11ED31001420E0 /* main.m in Sources */,
 				01E0875C1E11EC64001420E0 /* AppDelegate.m in Sources */,
+				01BF70631E214FBA00B0D33A /* CustomTableViewInteractor.swift in Sources */,
+				01BF70661E21504500B0D33A /* SimpleTableViewCell.swift in Sources */,
+				01BF70591E21385700B0D33A /* MainViewController.swift in Sources */,
+				01BF70601E213AD300B0D33A /* ISOnDemandTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,14 +200,6 @@
 				01E087641E11ED6A001420E0 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		01E087651E11ED6A001420E0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				01E087661E11ED6A001420E0 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -280,10 +299,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ISOnDemandTableView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.ilhasoft.ISOnDemandTableView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ISOnDemandTableView-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -291,10 +314,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ISOnDemandTableView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.ilhasoft.ISOnDemandTableView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ISOnDemandTableView-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
