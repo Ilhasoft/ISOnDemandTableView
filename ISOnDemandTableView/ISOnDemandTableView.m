@@ -9,6 +9,8 @@
 #import "ISOnDemandTableView.h"
 #import "ISOnDemandTableViewCell.h"
 
+#define SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
 @implementation ISOnDemandTableView {
     UIRefreshControl *compatRefreshControl;
 }
@@ -47,7 +49,7 @@
 - (void)initialize
 {
     compatRefreshControl = [[UIRefreshControl alloc] init];
-    if (floor(NSFoundationVersionNumber) >= NSFoundationVersionNumber10_0) {
+    if (SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0")) {
         self.refreshControl = compatRefreshControl;
     } else {
         // Fallback on earlier versions
