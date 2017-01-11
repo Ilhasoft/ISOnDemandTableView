@@ -110,6 +110,14 @@
     return (UITableViewCell *)cell;
 }
 
+# pragma mark - UIScrollView
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(scrollViewDidScroll:)]) {
+        [self.onDemandTableViewDelegate scrollViewDidScroll:scrollView];
+    }
+}
+
 # pragma mark - UITableViewDelegate
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
