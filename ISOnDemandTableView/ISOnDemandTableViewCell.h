@@ -10,6 +10,6 @@
 
 @protocol ISOnDemandTableViewCell <NSObject>
 
-- (void)setupCellWithObject:(id)object;
+- (void)setupCellWithObject:(id _Nonnull)object atIndexPath:(NSIndexPath * _Nonnull)indexPath;
 
 @end
