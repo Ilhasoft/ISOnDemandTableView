@@ -16,6 +16,7 @@
 @optional - (void)cell:(UITableViewCell * _Nonnull)cell willAppearAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @optional - (void)cell:(UITableViewCell * _Nonnull)cell willDisappearAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @optional - (void)scrollViewDidScroll:(UIScrollView *)scrollView;
+@optional - (CGFloat)heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 
 - (void)onContentLoadFinishedWithError:(NSError * _Nullable)error;
 - (NSString * _Nonnull)reuseIdentifierForCellAtIndexPath:(NSIndexPath * _Nonnull)indexPath;

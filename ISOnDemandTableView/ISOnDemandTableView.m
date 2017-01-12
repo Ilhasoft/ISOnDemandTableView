@@ -164,6 +164,14 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(heightForRowAtIndexPath:)]) {
+        return [self.onDemandTableViewDelegate heightForRowAtIndexPath:indexPath];
+    } else {
+        return UITableViewAutomaticDimension;
+    }
+}
+
 # pragma mark - ISOnDemandTableViewInteractorDelegate
 
 - (void)onObjectsFetched:(NSArray *)lastObjects error:(NSError *)error
