@@ -16,12 +16,12 @@
 
 @interface ISOnDemandTableViewInteractor : NSObject
 
-@property id<ISOnDemandTableViewInteractorDelegate> delegate;
-@property NSMutableArray *objects;
-@property NSUInteger currentPage;
-@property NSUInteger paginationCount;
-@property BOOL hasMoreItems;
-@property BOOL isFetching;
+@property (weak, nonatomic) id<ISOnDemandTableViewInteractorDelegate> delegate;
+@property (strong, nonatomic) NSMutableArray *objects;
+@property (nonatomic) NSUInteger currentPage;
+@property (nonatomic) NSUInteger paginationCount;
+@property (nonatomic) BOOL hasMoreItems;
+@property (nonatomic) BOOL isFetching;
 
 - (instancetype)initWithPaginationCount:(NSUInteger)paginationCount;
 - (void)loadItems;
