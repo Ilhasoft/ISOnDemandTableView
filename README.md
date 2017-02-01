@@ -68,5 +68,5 @@ override func viewDidLoad() {
 To install it using CocoaPods, add the following line the project's `Podfile`:
 
 ```
-pod 'ISOnDemandTableView', :git => 'https://github.com/Ilhasoft/IsOnDemandTableView/', :branch => 'master'
+pod 'ISOnDemandTableView', '1.0.0'
 ```
