@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
                        ISOnDemandTableView is a standard implementation for on-demand content in tableView that allows you to download content as you scroll
                        DESC
 
-  s.homepage         = "https://bitbucket.org/ilhasoft/isparse"
+  s.homepage         = "https://github.com/Ilhasoft/ISOnDemandTableView"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "Dielson Sales" => "dielson@ilhasoft.com.br" }
