@@ -73,9 +73,9 @@
 			isa = PBXGroup;
 			children = (
 				01BF705B1E213AD300B0D33A /* ISOnDemandTableView.h */,
+				01BF705E1E213AD300B0D33A /* ISOnDemandTableView.m */,
 				01BF705C1E213AD300B0D33A /* ISOnDemandTableViewCell.h */,
 				01BF705D1E213AD300B0D33A /* ISOnDemandTableViewInteractor.h */,
-				01BF705E1E213AD300B0D33A /* ISOnDemandTableView.m */,
 				01BF705F1E213AD300B0D33A /* ISOnDemandTableViewInteractor.m */,
 				0193469D1E0B5A1900D9053F /* Assets.xcassets */,
 				019346A21E0B5A1900D9053F /* Info.plist */,
@@ -302,6 +302,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = ISOnDemandTableView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.ilhasoft.ISOnDemandTableView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -318,6 +319,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = ISOnDemandTableView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.ilhasoft.ISOnDemandTableView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
