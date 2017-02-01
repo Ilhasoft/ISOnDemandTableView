@@ -105,8 +105,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *reuseIdentifier = [self.onDemandTableViewDelegate reuseIdentifierForCellAtIndexPath:indexPath];
-    id<ISOnDemandTableViewCell> cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
-    [cell setupCellWithObject:[self.interactor.objects objectAtIndex:indexPath.row] atIndexPath:indexPath];
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
+    if ([cell conformsToProtocol:@protocol(ISOnDemandTableViewCell)]) {
+        UITableViewCell<ISOnDemandTableViewCell> *onDemandTableViewCell = (UITableViewCell<ISOnDemandTableViewCell> *)cell;
+        [onDemandTableViewCell setupCellWithObject:[self.interactor.objects objectAtIndex:indexPath.row] atIndexPath:indexPath];
+    }
     if ([self.onDemandTableViewDelegate respondsToSelector:@selector(setupCell:atIndexPath:)]) {
         [self.onDemandTableViewDelegate setupCell:cell atIndexPath:indexPath];
     }
