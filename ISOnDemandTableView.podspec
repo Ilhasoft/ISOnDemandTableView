@@ -18,15 +18,15 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-                       A standard implementation for on-demand content in tableView
+                       ISOnDemandTableView is a standard implementation for on-demand content in tableView that allows you to download content as you scroll
                        DESC
 
   s.homepage         = "https://bitbucket.org/ilhasoft/isparse"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
-  s.license          = 'MIT'
+  s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "Dielson Sales" => "dielson@ilhasoft.com.br" }
-  s.source       = { :git => "https://bitbucket.org/ilhasoft/isparse.git", :branch => "master" }
-  s.social_media_url   = "https://twitter.com/dielsonscarvalho"
+  s.source           = { :git => "https://bitbucket.org/ilhasoft/isparse.git", :tag => "1.0.0" }
+  s.social_media_url = "https://twitter.com/dielsonsaless"
 
   s.ios.deployment_target = '9.0'
 
