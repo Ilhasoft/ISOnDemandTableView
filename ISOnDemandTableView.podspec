@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "Dielson Sales" => "dielson@ilhasoft.com.br" }
-  s.source           = { :git => "https://github.com/Ilhasoft/ISOnDemandTableView", :tag => "1.0.0" }
+  s.source           = { :git => "https://github.com/Ilhasoft/ISOnDemandTableView.git", :tag => "1.0.0" }
   s.social_media_url = "https://twitter.com/dielsonsaless"
 
   s.ios.deployment_target = '9.0'
