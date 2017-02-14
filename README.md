@@ -4,13 +4,13 @@
 
 `ISOnDemandTableView` allows you to load the TableView content in little chunks as you scroll down the list instead of loading everything at once. This is important if your list contains a lot of information.
 
-![](https://github.com/Ilhasoft/IsOnDemandTableView/blob/master/Resources/OnDemandTableView.gif)
+![](https://raw.githubusercontent.com/Ilhasoft/ISOnDemandTableView/master/Resources/OnDemandTableView.gif)
 
 # Usage
 
 To quickly implement an "on demand" list, make your UITableView a subclass of ISOnDemandTableView:
 
-![](https://github.com/Ilhasoft/IsOnDemandTableView/blob/master/Resources/usage01.png)
+![](https://raw.githubusercontent.com/Ilhasoft/ISOnDemandTableView/master/Resources/usage01.png)
 
 In your ViewController, implement the `ISOnDemandTableViewDelegate` protocol. You're required to implement two method at least:
 
