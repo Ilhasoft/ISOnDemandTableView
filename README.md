@@ -70,3 +70,33 @@ To install it using CocoaPods, add the following line the project's `Podfile`:
 ```
 pod 'ISOnDemandTableView', '1.0.0'
 ```
+
+# Using ISOnDemandTableView with Parse
+
+You can create a simple interator that retrieves content from a `PFQuery` with a few lines of code:
+
+```swift
+import UIKit
+import Parse
+import ISOnDemandTableView
+
+class ParseTableViewInteractor: ISOnDemandTableViewInteractor {
+
+    private var query: PFQuery<PFObject>
+    private let emptyObjectsList: [AnyObject] = []
+
+    init(query: PFQuery<PFObject>, paginationCount: UInt) {
+        self.query = query
+        query.limit = Int(paginationCount)
+        query.skip = 0
+        super.init(paginationCount: paginationCount)
+    }
+
+    override func fetchObjects(forPage page: UInt, with handler: (([Any]?, Error?) -> Void)!) {
+        self.query.skip = Int(self.currentPage * self.paginationCount)
+        query.findObjectsInBackground { objects, error in
+            handler(objects ?? self.emptyObjectsList, nil)
+        }
+    }
+}
+```
