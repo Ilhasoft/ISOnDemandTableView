@@ -9,17 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "ISOnDemandTableViewInteractor.h"
 
+@class ISOnDemandTableView;
+
 @protocol ISOnDemandTableViewDelegate <NSObject>
 
-@optional - (void)didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-@optional - (void)setupCell:(UITableViewCell * _Nonnull)cell atIndexPath:(NSIndexPath * _Nonnull)indexPath;
-@optional - (void)cell:(UITableViewCell * _Nonnull)cell willAppearAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-@optional - (void)cell:(UITableViewCell * _Nonnull)cell willDisappearAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-@optional - (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
-@optional - (CGFloat)heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@optional - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@optional - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView setupCell:(UITableViewCell * _Nonnull)cell atIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@optional - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView cell:(UITableViewCell * _Nonnull)cell willAppearAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@optional - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView cell:(UITableViewCell * _Nonnull)cell willDisappearAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@optional - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
+@optional - (CGFloat)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 
-- (void)onContentLoadFinishedWithError:(NSError * _Nullable)error;
-- (NSString * _Nonnull)reuseIdentifierForCellAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView onContentLoadFinishedWithError:(NSError * _Nullable)error;
+- (NSString * _Nonnull)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView reuseIdentifierForCellAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 
 @end
 

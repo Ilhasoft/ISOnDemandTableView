@@ -104,14 +104,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *reuseIdentifier = [self.onDemandTableViewDelegate reuseIdentifierForCellAtIndexPath:indexPath];
+    NSString *reuseIdentifier = [self.onDemandTableViewDelegate onDemandTableView:self reuseIdentifierForCellAtIndexPath:indexPath];
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     if ([cell conformsToProtocol:@protocol(ISOnDemandTableViewCell)]) {
         UITableViewCell<ISOnDemandTableViewCell> *onDemandTableViewCell = (UITableViewCell<ISOnDemandTableViewCell> *)cell;
         [onDemandTableViewCell setupCellWithObject:[self.interactor.objects objectAtIndex:indexPath.row] atIndexPath:indexPath];
     }
-    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(setupCell:atIndexPath:)]) {
-        [self.onDemandTableViewDelegate setupCell:cell atIndexPath:indexPath];
+    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandTableView:setupCell:atIndexPath:)]) {
+        [self.onDemandTableViewDelegate onDemandTableView:self setupCell:cell atIndexPath:indexPath];
     }
     return (UITableViewCell *)cell;
 }
@@ -119,8 +119,8 @@
 # pragma mark - UIScrollView
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(scrollViewDidScroll:)]) {
-        [self.onDemandTableViewDelegate scrollViewDidScroll:scrollView];
+    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandTableView:scrollViewDidScroll:)]) {
+        [self.onDemandTableViewDelegate onDemandTableView:self scrollViewDidScroll:scrollView];
     }
 }
 
@@ -148,28 +148,28 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(didSelectRowAtIndexPath:)]) {
-        [self.onDemandTableViewDelegate didSelectRowAtIndexPath:indexPath];
+    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandTableView:didSelectRowAtIndexPath:)]) {
+        [self.onDemandTableViewDelegate onDemandTableView:self didSelectRowAtIndexPath:indexPath];
     }
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(cell:willAppearAtIndexPath:)]) {
-        [self.onDemandTableViewDelegate cell:cell willAppearAtIndexPath:indexPath];
+    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandTableView:cell:willAppearAtIndexPath:)]) {
+        [self.onDemandTableViewDelegate onDemandTableView:self cell:cell willAppearAtIndexPath:indexPath];
     }
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(cell:willDisappearAtIndexPath:)]) {
-        [self.onDemandTableViewDelegate cell:cell willDisappearAtIndexPath:indexPath];
+    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandTableView:cell:willDisappearAtIndexPath:)]) {
+        [self.onDemandTableViewDelegate onDemandTableView:self cell:cell willDisappearAtIndexPath:indexPath];
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(heightForRowAtIndexPath:)]) {
-        return [self.onDemandTableViewDelegate heightForRowAtIndexPath:indexPath];
+    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandTableView:heightForRowAtIndexPath:)]) {
+        return [self.onDemandTableViewDelegate onDemandTableView:self heightForRowAtIndexPath:indexPath];
     } else {
         return UITableViewAutomaticDimension;
     }
@@ -185,7 +185,7 @@
     if (lastObjects.count < self.interactor.paginationCount) {
         self.tableFooterView = nil;
     }
-    [self.onDemandTableViewDelegate onContentLoadFinishedWithError:error];
+    [self.onDemandTableViewDelegate onDemandTableView:self onContentLoadFinishedWithError:error];
     if (error == nil) {
         [self reloadData];
     }

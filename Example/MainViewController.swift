@@ -35,13 +35,24 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: ISOnDemandTableViewDelegate {
-    func reuseIdentifierForCell(at indexPath: IndexPath) -> String {
+
+    func onDemandTableView(_ tableView: ISOnDemandTableView, reuseIdentifierForCellAt indexPath: IndexPath) -> String {
+        guard tableView == self.tableView else {
+            fatalError("TableView reference is wrong!")
+        }
         return "SimpleTableViewCell"
     }
 
-    func onContentLoadFinishedWithError(_ error: Error?) {
+    func onDemandTableView(_ tableView: ISOnDemandTableView, onContentLoadFinishedWithError error: Error?) {
         if let error = error {
             print(error.localizedDescription)
         }
+    }
+
+    func onDemandTableView(_ tableView: ISOnDemandTableView, didSelectRowAt indexPath: IndexPath) {
+        guard tableView == self.tableView else {
+            fatalError("TableView reference is wrong!")
+        }
+        print("Did select my tableView!")
     }
 }
