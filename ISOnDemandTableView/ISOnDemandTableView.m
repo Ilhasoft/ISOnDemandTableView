@@ -68,11 +68,16 @@
 
 - (void)onPullToRefresh
 {
+    //[self setFooterSpinner];
+    [self.interactor refreshAllContent];
+}
+
+- (void)setFooterSpinner
+{
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width, 30.0)];
     [spinner startAnimating];
     spinner.color = [UIColor grayColor];
     self.tableFooterView = spinner;
-    [self.interactor refreshAllContent];
 }
 
 - (void)loadContent
@@ -80,13 +85,14 @@
     if (self.onDemandTableViewDelegate == nil) {
         [NSException raise:@"ISOnDemandTableViewDelegateNotSet" format:@"You must set the ISOnDemandTableViewDelegate before calling loadContent"];
     }
-    [self.interactor loadItems];
-
-    if (self.interactor.hasMoreItems && self.tableFooterView == nil) {
-        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width, 30.0)];
-        [spinner startAnimating];
-        spinner.color = [UIColor grayColor];
-        self.tableFooterView = spinner;
+    
+    if (!compatRefreshControl.isRefreshing) {
+        [self.interactor loadItems];
+        
+        if (self.interactor.hasMoreItems && self.showFooterSpinner) {
+            self.showFooterSpinner = NO;
+            [self setFooterSpinner];
+        }
     }
 }
 
@@ -131,6 +137,7 @@
     CGFloat contentYOffset = self.contentOffset.y + self.frame.size.height;
     if (contentYOffset >= self.contentSize.height) {
         NSLog(@"Reached end of tableview");
+        self.showFooterSpinner = YES;
         [self loadContent];
     }
 }
@@ -141,6 +148,7 @@
         CGFloat contentYOffset = self.contentOffset.y + self.frame.size.height;
         if (contentYOffset >= self.contentSize.height) {
             NSLog(@"Reached end of tableview");
+            self.showFooterSpinner = YES;
             [self loadContent];
         }
     }

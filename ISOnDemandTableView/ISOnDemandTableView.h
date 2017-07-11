@@ -28,9 +28,11 @@
 @interface ISOnDemandTableView : UITableView <UITableViewDataSource, UITableViewDelegate, ISOnDemandTableViewInteractorDelegate>
 
 @property(nonatomic) ISOnDemandTableViewInteractor * _Nullable interactor;
+@property(nonatomic) BOOL showFooterSpinner;
 @property(nonatomic) id<ISOnDemandTableViewDelegate> _Nullable onDemandTableViewDelegate;
 
 - (void)setInteractor:(ISOnDemandTableViewInteractor * _Nonnull)newInteractor;
 - (void)loadContent;
+- (void)setFooterSpinner;
 
 @end
