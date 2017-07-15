@@ -16,6 +16,7 @@
 @optional - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @optional - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView setupCell:(UITableViewCell * _Nonnull)cell atIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @optional - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView cell:(UITableViewCell * _Nonnull)cell willAppearAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@optional - (void)onDemandWasPulledToRefresh:(ISOnDemandTableView * _Nonnull)tableView;
 @optional - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView cell:(UITableViewCell * _Nonnull)cell willDisappearAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @optional - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
 @optional - (CGFloat)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;

@@ -69,6 +69,7 @@
 - (void)onPullToRefresh
 {
     //[self setFooterSpinner];
+    [self.onDemandTableViewDelegate onDemandWasPulledToRefresh:self];
     [self.interactor refreshAllContent];
 }
 
