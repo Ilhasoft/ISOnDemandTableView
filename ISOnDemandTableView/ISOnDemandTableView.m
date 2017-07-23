@@ -87,7 +87,7 @@
         [NSException raise:@"ISOnDemandTableViewDelegateNotSet" format:@"You must set the ISOnDemandTableViewDelegate before calling loadContent"];
     }
     
-    if (!compatRefreshControl.isRefreshing) {
+    if (!compatRefreshControl.isRefreshing && !_ignoreLoadRequests) {
         [self.interactor loadItems];
         
         if (self.interactor.hasMoreItems && self.showFooterSpinner) {

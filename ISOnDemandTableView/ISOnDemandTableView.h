@@ -30,6 +30,7 @@
 
 @property(nonatomic) ISOnDemandTableViewInteractor * _Nullable interactor;
 @property(nonatomic) BOOL showFooterSpinner;
+@property(nonatomic) BOOL ignoreLoadRequests;
 @property(nonatomic) id<ISOnDemandTableViewDelegate> _Nullable onDemandTableViewDelegate;
 
 - (void)setInteractor:(ISOnDemandTableViewInteractor * _Nonnull)newInteractor;
