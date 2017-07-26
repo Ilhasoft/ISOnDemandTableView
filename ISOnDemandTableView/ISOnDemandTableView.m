@@ -188,11 +188,9 @@
 
 - (void)onObjectsFetched:(NSArray *)lastObjects error:(NSError *)error
 {
+    self.tableFooterView = nil;
     if (compatRefreshControl.isRefreshing) {
         [compatRefreshControl endRefreshing];
-    }
-    if (lastObjects.count < self.interactor.paginationCount) {
-        self.tableFooterView = nil;
     }
     [self.onDemandTableViewDelegate onDemandTableView:self onContentLoadFinishedWithError:error];
     if (error == nil) {
