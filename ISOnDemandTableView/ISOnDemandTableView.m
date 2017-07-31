@@ -192,11 +192,19 @@
     if (compatRefreshControl.isRefreshing) {
         [compatRefreshControl endRefreshing];
     }
-    [self.onDemandTableViewDelegate onDemandTableView:self onContentLoadFinishedWithError:error];
     if (error == nil) {
-        [self reloadData];
+        NSMutableArray *newIndexesArray = [NSMutableArray array];
+        NSInteger initialIndex = [self numberOfRowsInSection:0];
+        
+        for (int i=0; i<lastObjects.count; i++) {
+            [newIndexesArray addObject: [NSIndexPath indexPathForRow:initialIndex+i inSection:0]];
+        }
+        
+        [self insertRowsAtIndexPaths: newIndexesArray withRowAnimation:UITableViewRowAnimationAutomatic];
+        //[self reloadData];
     }
-
+    [self.onDemandTableViewDelegate onDemandTableView:self onContentLoadFinishedWithError:error];
+    
 }
 
 @end
