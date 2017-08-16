@@ -15,7 +15,7 @@
 
 @optional - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @optional - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView setupCell:(UITableViewCell * _Nonnull)cell atIndexPath:(NSIndexPath * _Nonnull)indexPath;
-@optional - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView cell:(UITableViewCell * _Nonnull)cell willAppearAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+ - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView cell:(UITableViewCell * _Nonnull)cell willAppearAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @optional - (void)onDemandWasPulledToRefresh:(ISOnDemandTableView * _Nonnull)tableView;
 @optional - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView cell:(UITableViewCell * _Nonnull)cell willDisappearAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @optional - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
@@ -23,6 +23,7 @@
 
 - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView onContentLoadFinishedWithError:(NSError * _Nullable)error;
 - (NSString * _Nonnull)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView reuseIdentifierForCellAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@optional - (UITableViewCell *)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView cellForIndexPath:(NSIndexPath * _Nonnull)indexPath;
 
 @end
 

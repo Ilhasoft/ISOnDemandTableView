@@ -114,8 +114,12 @@
     NSString *reuseIdentifier = [self.onDemandTableViewDelegate onDemandTableView:self reuseIdentifierForCellAtIndexPath:indexPath];
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     if ([cell conformsToProtocol:@protocol(ISOnDemandTableViewCell)]) {
-        UITableViewCell<ISOnDemandTableViewCell> *onDemandTableViewCell = (UITableViewCell<ISOnDemandTableViewCell> *)cell;
-        [onDemandTableViewCell setupCellWithObject:[self.interactor.objects objectAtIndex:indexPath.row] atIndexPath:indexPath];
+        if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandTableView:cellForIndexPath:)] && ([self.onDemandTableViewDelegate onDemandTableView:self cellForIndexPath:indexPath] != nil)) {
+            cell = [self.onDemandTableViewDelegate onDemandTableView:self cellForIndexPath:indexPath];
+        } else {
+            UITableViewCell<ISOnDemandTableViewCell> *onDemandTableViewCell = (UITableViewCell<ISOnDemandTableViewCell> *)cell;
+            [onDemandTableViewCell setupCellWithObject:[self.interactor.objects objectAtIndex:indexPath.row] atIndexPath:indexPath];
+        }
     }
     if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandTableView:setupCell:atIndexPath:)]) {
         [self.onDemandTableViewDelegate onDemandTableView:self setupCell:cell atIndexPath:indexPath];
