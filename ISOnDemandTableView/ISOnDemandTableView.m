@@ -69,7 +69,14 @@
 - (void)onPullToRefresh
 {
     //[self setFooterSpinner];
-    [self.onDemandTableViewDelegate onDemandWasPulledToRefresh:self];
+    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandWillStartLoading:)]) {
+        [self.onDemandTableViewDelegate onDemandWillStartLoading:self];
+    }
+    
+    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandWasPulledToRefresh:)]) {
+        [self.onDemandTableViewDelegate onDemandWasPulledToRefresh:self];
+    }
+    
     [self.interactor refreshAllContent];
 }
 
@@ -88,6 +95,9 @@
     }
     
     if (!compatRefreshControl.isRefreshing && self.tableFooterView == nil && !_ignoreLoadRequests) {
+        if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandWillStartLoading:)]) {
+            [self.onDemandTableViewDelegate onDemandWillStartLoading:self];
+        }
         [self.interactor loadItems];
         
         if (self.interactor.hasMoreItems && self.showFooterSpinner) {
@@ -173,6 +183,22 @@
 {
     if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandTableView:cell:willDisappearAtIndexPath:)]) {
         [self.onDemandTableViewDelegate onDemandTableView:self cell:cell willDisappearAtIndexPath:indexPath];
+    }
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandTableView:viewForHeaderInSection:)]) {
+        return [self.onDemandTableViewDelegate onDemandTableView:self viewForHeaderInSection:&section];
+    } else {
+        return NULL;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandTableView:heightForHeaderAtSection:)]) {
+        return [self.onDemandTableViewDelegate onDemandTableView:self heightForHeaderAtSection:&section];
+    } else {
+        return UITableViewAutomaticDimension;
     }
 }
 
