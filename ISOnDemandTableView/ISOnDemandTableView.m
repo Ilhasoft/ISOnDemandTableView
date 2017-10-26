@@ -218,7 +218,7 @@
     if (compatRefreshControl.isRefreshing) {
         [compatRefreshControl endRefreshing];
     }
-    [self.onDemandTableViewDelegate onDemandTableView:self onContentLoadFinishedWithError:error];
+    [self.onDemandTableViewDelegate onDemandTableView:self onContentLoad:lastObjects withError:error];
     if (error == nil) {
         [self reloadData];
     }
