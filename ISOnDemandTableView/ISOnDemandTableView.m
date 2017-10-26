@@ -185,7 +185,7 @@
     if (lastObjects.count < self.interactor.paginationCount) {
         self.tableFooterView = nil;
     }
-    [self.onDemandTableViewDelegate onDemandTableView:self onContentLoad:lastObjects withError:error];
+    [self.onDemandTableViewDelegate onDemandTableView:self onContentLoadFinishedWithError:error];
     if (error == nil) {
         [self reloadData];
     }

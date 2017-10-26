@@ -20,7 +20,7 @@
 @optional - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
 @optional - (CGFloat)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 
-- (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView onContentLoad:(NSArray * _Nullable)lastData withError:(NSError * _Nullable)error;
+- (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView onContentLoadFinishedWithError:(NSError * _Nullable)error;
 - (NSString * _Nonnull)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView reuseIdentifierForCellAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 
 @end
