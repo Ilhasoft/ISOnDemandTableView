@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ISOnDemandTableView: UITableView {
+public class ISOnDemandTableView: UITableView {
     var onDemandDelegate: ISOnDemandTableViewDelegate?
     var interactor: ISOnDemandTableViewInteractor! {
         didSet {
@@ -18,7 +18,7 @@ class ISOnDemandTableView: UITableView {
     var isLoadingContent = false
     
     //MARK: Init
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initialize()
     }
@@ -79,50 +79,50 @@ extension ISOnDemandTableView: ISOnDemandTableViewInteractorDelegate {
 }
 
 extension ISOnDemandTableView: UITableViewDataSource, UITableViewDelegate {
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return interactor.objects.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = onDemandDelegate?.onDemandTableView(self, reuseIdentifierForCellAt: indexPath) ?? ""
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         (cell as? ISOnDemandTableViewCell)?.setup(with: interactor.objects[indexPath.row], at: indexPath)
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+   public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return onDemandDelegate?.onDemandTableView(self, heightForRowAt: indexPath) ?? UITableViewAutomaticDimension
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         onDemandDelegate?.onDemandTableView(self, didSelectRowAt: indexPath)
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         onDemandDelegate?.onDemandTableView(self, cell: cell, willAppearAt: indexPath)
     }
     
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         onDemandDelegate?.onDemandTableView(self, cell: cell, willDisappearAt: indexPath)
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return onDemandDelegate?.onDemandTableView(self, heightForHeaderAtSection: section) ?? UITableViewAutomaticDimension
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return onDemandDelegate?.onDemandTableView(self, viewForHeaderAtSection: section)
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         onDemandDelegate?.onDemandTableViewDidScroll(self)
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let contentYOffset = self.contentOffset.y + self.frame.size.height
         if contentYOffset >= self.contentSize.height {
             NSLog("Reached end of tableview")
@@ -131,7 +131,7 @@ extension ISOnDemandTableView: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         guard !decelerate else {return}
       
         let contentYOffset = self.contentOffset.y + self.frame.size.height

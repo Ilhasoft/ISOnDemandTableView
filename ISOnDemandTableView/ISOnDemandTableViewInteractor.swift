@@ -12,7 +12,7 @@ protocol ISOnDemandTableViewInteractorDelegate {
     func onObjectsFetched(_ objects: [Any]?, _ error: Error?)
 }
 
-class ISOnDemandTableViewInteractor {
+public class ISOnDemandTableViewInteractor {
     var delegate: ISOnDemandTableViewInteractorDelegate?
     var objects = [Any]()
     var currentPage = 0
