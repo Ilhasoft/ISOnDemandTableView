@@ -8,20 +8,20 @@
 
 import Foundation
 
-protocol ISOnDemandTableViewInteractorDelegate {
+public protocol ISOnDemandTableViewInteractorDelegate {
     func onObjectsFetched(_ objects: [Any]?, _ error: Error?)
 }
 
-public class ISOnDemandTableViewInteractor {
-    var delegate: ISOnDemandTableViewInteractorDelegate?
-    var objects = [Any]()
-    var currentPage = 0
-    var pagination: Int = 10
-    var isFetching = false
+open class ISOnDemandTableViewInteractor {
+    public var delegate: ISOnDemandTableViewInteractorDelegate?
+    public var objects = [Any]()
+    private(set) public var currentPage = 0
+    private(set) public var pagination: Int = 10
+    public var isFetching = false
     
     fileprivate(set) public var hasMoreItems = true
     
-    init(pagination: Int) {
+    public init(pagination: Int) {
         self.pagination = pagination
     }
     
@@ -47,7 +47,7 @@ public class ISOnDemandTableViewInteractor {
     /**
      * Override this method to return the new objects fetched every time a new page is loaded
      */
-    open func fetchObjects(forPage page: Int, _ completion: @escaping (_ result: [Any]?, _ error: Error?) -> ()) { }
+    open func fetchObjects(forPage page: Int, _ handler: @escaping (_ result: [Any]?, _ error: Error?) -> ()) { }
     
     func onObjectsLoaded(lastObjects: [Any]) {
         isFetching = false
