@@ -21,7 +21,7 @@ class MainViewController: UIViewController {
 
     private func setupTableView() {
         self.tableView.register(UINib(nibName: "SimpleTableViewCell", bundle: nil), forCellReuseIdentifier: "SimpleTableViewCell")
-        self.tableView.onDemandTableViewDelegate = self
+        self.tableView.onDemandDelegate = self
         self.tableView.interactor = CustomTableViewInteractor()
         self.tableView.loadContent()
         self.tableView.delegate = self.tableView
@@ -35,7 +35,6 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: ISOnDemandTableViewDelegate {
-
     func onDemandTableView(_ tableView: ISOnDemandTableView, reuseIdentifierForCellAt indexPath: IndexPath) -> String {
         guard tableView == self.tableView else {
             fatalError("TableView reference is wrong!")
@@ -43,7 +42,7 @@ extension MainViewController: ISOnDemandTableViewDelegate {
         return "SimpleTableViewCell"
     }
 
-    func onDemandTableView(_ tableView: ISOnDemandTableView, onContentLoadFinishedWithError error: Error?) {
+    func onDemandTableView(_ tableView: ISOnDemandTableView, onContentLoad lastData: [Any]?, withError error: Error?) {
         if let error = error {
             print(error.localizedDescription)
         }

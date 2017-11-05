@@ -10,5 +10,5 @@ import UIKit
 
 
 protocol ISOnDemandTableViewCell {
-    func setup(with object: AnyObject, at indexPath: IndexPath)
+    func setup(with object: Any, at indexPath: IndexPath)
 }

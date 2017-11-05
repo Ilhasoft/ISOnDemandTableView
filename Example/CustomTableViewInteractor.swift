@@ -9,20 +9,20 @@
 import UIKit
 
 class CustomTableViewInteractor: ISOnDemandTableViewInteractor {
-    override init() {
-        super.init(paginationCount: 20)
+    init() {
+        super.init(pagination: 20)
     }
 
-    override func fetchObjects(forPage page: UInt, with handler: (([Any]?, Error?) -> Void)!) {
+    override func fetchObjects(forPage page: Int, _ completion: @escaping ([Any]?, Error?) -> ()) {
         var objectsList: [Any] = []
-        let lowerBound = page * paginationCount
-        let upperBound = (page + 1) * paginationCount
+        let lowerBound = page * pagination
+        let upperBound = (page + 1) * pagination
         for index in lowerBound..<upperBound {
             if index > 100 {
                 break
             }
             objectsList.append("\(index)")
         }
-        handler(objectsList, nil)
+        completion(objectsList, nil)
     }
 }

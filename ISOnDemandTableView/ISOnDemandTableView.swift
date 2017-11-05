@@ -29,10 +29,12 @@ class ISOnDemandTableView: UITableView {
     }
     
     fileprivate func initialize() {
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: #selector(onPullToRefresh), for: .valueChanged)
-        dataSource = self
-        delegate = self
+        if #available(iOS 10.0, *) {
+            refreshControl = UIRefreshControl()
+            refreshControl?.addTarget(self, action: #selector(onPullToRefresh), for: .valueChanged)
+        } 
+        self.dataSource = self
+        self.delegate = self
     }
     
     //MARK: Class Methods
@@ -62,9 +64,12 @@ class ISOnDemandTableView: UITableView {
 }
 
 extension ISOnDemandTableView: ISOnDemandTableViewInteractorDelegate {
-    func onObjectsFetched(_ objects: [AnyObject]?, _ error: Error?) {
+    func onObjectsFetched(_ objects: [Any]?, _ error: Error?) {
         self.setFooterSpinner(to: false)
-        self.refreshControl?.endRefreshing()
+        if #available(iOS 10.0, *) {
+            self.refreshControl?.endRefreshing()
+        }
+        
         self.onDemandDelegate?.onDemandTableView(self, onContentLoad: objects, withError: error)
         
         if error == nil {

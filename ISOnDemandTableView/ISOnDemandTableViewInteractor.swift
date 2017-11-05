@@ -9,17 +9,17 @@
 import Foundation
 
 protocol ISOnDemandTableViewInteractorDelegate {
-    func onObjectsFetched(_ objects: [AnyObject]?, _ error: Error?)
+    func onObjectsFetched(_ objects: [Any]?, _ error: Error?)
 }
 
 class ISOnDemandTableViewInteractor {
     var delegate: ISOnDemandTableViewInteractorDelegate?
-    var objects = [AnyObject]()
+    var objects = [Any]()
     var currentPage = 0
     var pagination: Int = 10
     var isFetching = false
     
-    fileprivate(set) public var hasMoreItems = false
+    fileprivate(set) public var hasMoreItems = true
     
     init(pagination: Int) {
         self.pagination = pagination
@@ -38,7 +38,8 @@ class ISOnDemandTableViewInteractor {
         
         fetchObjects(forPage: currentPage) {
             (objects, error) in
-            self.objects.append(contentsOf: objects ?? [])
+            self.objects = self.objects + (objects ?? [])
+            self.onObjectsLoaded(lastObjects: objects ?? [])
             self.delegate?.onObjectsFetched(objects, error)
         }
     }
@@ -46,15 +47,12 @@ class ISOnDemandTableViewInteractor {
     /**
      * Override this method to return the new objects fetched every time a new page is loaded
      */
-    open func fetchObjects(forPage page: Int, _ completion: @escaping (_ result: [AnyObject]?, _ error: Error?) -> ()) { }
+    open func fetchObjects(forPage page: Int, _ completion: @escaping (_ result: [Any]?, _ error: Error?) -> ()) { }
     
-    func onObjectsLoaded(lastObjects: [AnyObject]) {
+    func onObjectsLoaded(lastObjects: [Any]) {
         isFetching = false
-        if lastObjects.count < pagination {
-            hasMoreItems = false
-        } else {
-            currentPage += 1
-        }
+        currentPage += 1
+        hasMoreItems = lastObjects.count >= pagination
     }
     
     func refreshAllContent() {
