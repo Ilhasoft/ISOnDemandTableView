@@ -65,7 +65,7 @@ extension ISOnDemandTableView: ISOnDemandTableViewInteractorDelegate {
     func onObjectsFetched(_ objects: [AnyObject]?, _ error: Error?) {
         self.setFooterSpinner(to: false)
         self.refreshControl?.endRefreshing()
-        self.onDemandDelegate?.onDemandTableView(self, lastDataLoaded: objects, withError: error)
+        self.onDemandDelegate?.onDemandTableView(self, onContentLoad: objects, withError: error)
         
         if error == nil {
             self.reloadData()

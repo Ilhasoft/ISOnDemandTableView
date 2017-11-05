@@ -19,7 +19,7 @@ protocol ISOnDemandTableViewDelegate {
     func onDemandTableView(_ tableView: ISOnDemandTableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     func onDemandTableView(_ tableView: ISOnDemandTableView, heightForHeaderAtSection section: Int) -> CGFloat?
     func onDemandTableView(_ tableView: ISOnDemandTableView, viewForHeaderAtSection section: Int) -> UIView?
-    func onDemandTableView(_ tableView: ISOnDemandTableView, lastDataLoaded data: [AnyObject]?, withError error: Error?)
+    func onDemandTableView(_ tableView: ISOnDemandTableView, onContentLoad lastData: [Any]?, withError error: Error?)
     func onDemandTableView(_ tableView: ISOnDemandTableView, reuseIdentifierForCellAt indexPath: IndexPath) -> String
 
 
