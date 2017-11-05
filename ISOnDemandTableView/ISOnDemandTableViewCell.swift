@@ -9,6 +9,6 @@
 import UIKit
 
 
-protocol ISOnDemandTableViewCell {
+public protocol ISOnDemandTableViewCell {
     func setup(with object: Any, at indexPath: IndexPath)
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ISOnDemandTableViewDelegate {
+public protocol ISOnDemandTableViewDelegate {
     func onDemandTableView(_ tableView: ISOnDemandTableView, onContentLoad lastData: [Any]?, withError error: Error?)
     func onDemandTableView(_ tableView: ISOnDemandTableView, reuseIdentifierForCellAt indexPath: IndexPath) -> String
 
