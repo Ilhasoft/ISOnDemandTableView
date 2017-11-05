@@ -19,7 +19,7 @@ open class ISOnDemandTableViewInteractor {
     private(set) public var pagination: Int = 10
     public var isFetching = false
     
-    fileprivate(set) public var hasMoreItems = true
+    public var hasMoreItems = true
     
     public init(pagination: Int) {
         self.pagination = pagination
@@ -55,7 +55,7 @@ open class ISOnDemandTableViewInteractor {
         hasMoreItems = lastObjects.count >= pagination
     }
     
-    func refreshAllContent() {
+    public func refreshAllContent() {
         guard !isFetching else {
             NSLog("Still fetching items, wait...")
             return

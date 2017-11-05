@@ -1,5 +1,5 @@
 //
-//  ISOnDemandTableViewDelegate.swift
+//  ISonDemandDelegate.swift
 //  ISOnDemandTableView
 //
 //  Created by Yves Bastos on 05/11/2017.
@@ -14,10 +14,9 @@ public protocol ISOnDemandTableViewDelegate {
 
     
     func onDemandWasPulled(toRefresh: ISOnDemandTableView)
+    func onDemandTableView(_ tableView: ISOnDemandTableView, setupCell cell: UITableViewCell, at indexPath: IndexPath)
     func onDemandTableView(_ tableView: ISOnDemandTableView, didSelectRowAt indexPath: IndexPath)
     func onDemandTableView(_ tableView: ISOnDemandTableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    func onDemandTableView(_ tableView: ISOnDemandTableView, cell: UITableViewCell, willAppearAt indexPath: IndexPath)
-    func onDemandTableView(_ tableView: ISOnDemandTableView, cell: UITableViewCell, willDisappearAt indexPath: IndexPath)
     func onDemandTableViewDidScroll(_ tableView: ISOnDemandTableView)
     func onDemandTableView(_ tableView: ISOnDemandTableView, heightForHeaderAtSection section: Int) -> CGFloat?
     func onDemandTableView(_ tableView: ISOnDemandTableView, viewForHeaderAtSection section: Int) -> UIView?
@@ -28,9 +27,8 @@ extension ISOnDemandTableViewDelegate {
     func onDemandTableView(_ tableView: ISOnDemandTableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
+    func onDemandTableView(_ tableView: ISOnDemandTableView, setupCell cell: UITableViewCell, at indexPath: IndexPath) {}
     func onDemandTableView(_ tableView: ISOnDemandTableView, didSelectRowAt indexPath: IndexPath) {}
-    func onDemandTableView(_ tableView: ISOnDemandTableView, cell: UITableViewCell, willAppearAt indexPath: IndexPath) {}
-    func onDemandTableView(_ tableView: ISOnDemandTableView, cell: UITableViewCell, willDisappearAt indexPath: IndexPath) {}
     func onDemandTableViewDidScroll(_ tableView: ISOnDemandTableView) {}
     func onDemandTableView(_ tableView: ISOnDemandTableView, heightForHeaderAtSection section: Int) -> CGFloat? {return nil}
     func onDemandTableView(_ tableView: ISOnDemandTableView, viewForHeaderAtSection section: Int) -> UIView? {return nil}

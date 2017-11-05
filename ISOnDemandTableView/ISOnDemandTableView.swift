@@ -9,13 +9,13 @@
 import UIKit
 
 public class ISOnDemandTableView: UITableView {
-    var onDemandDelegate: ISOnDemandTableViewDelegate?
-    var interactor: ISOnDemandTableViewInteractor! {
+    public var onDemandDelegate: ISOnDemandTableViewDelegate?
+    public var interactor: ISOnDemandTableViewInteractor! {
         didSet {
             interactor?.delegate = self
         }
     }
-    var isLoadingContent = false
+    public var isLoadingContent = false
     
     //MARK: Init
     required public init?(coder aDecoder: NSCoder) {
@@ -46,7 +46,7 @@ public class ISOnDemandTableView: UITableView {
     /**
      Loads the contents in the on demand tableView.
      */
-    func loadContent() {
+    public func loadContent() {
         guard let _ = onDemandDelegate, let interactor = interactor else {
             fatalError("You must set both ISOnDemandColectionViewDelegate and ISOnDemandCollectionViewInteractor before calling loadContent")
         }
@@ -64,7 +64,7 @@ public class ISOnDemandTableView: UITableView {
 }
 
 extension ISOnDemandTableView: ISOnDemandTableViewInteractorDelegate {
-    func onObjectsFetched(_ objects: [Any]?, _ error: Error?) {
+    public func onObjectsFetched(_ objects: [Any]?, _ error: Error?) {
         self.setFooterSpinner(to: false)
         if #available(iOS 10.0, *) {
             self.refreshControl?.endRefreshing()
@@ -100,14 +100,6 @@ extension ISOnDemandTableView: UITableViewDataSource, UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         onDemandDelegate?.onDemandTableView(self, didSelectRowAt: indexPath)
-    }
-    
-    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        onDemandDelegate?.onDemandTableView(self, cell: cell, willAppearAt: indexPath)
-    }
-    
-    public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        onDemandDelegate?.onDemandTableView(self, cell: cell, willDisappearAt: indexPath)
     }
     
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
