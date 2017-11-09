@@ -73,10 +73,9 @@
 - (void)onObjectsLoaded:(NSArray *)lastObjects
 {
     self.isFetching = NO;
+    self.currentPage++;
     if (lastObjects.count < self.paginationCount) {
         self.hasMoreItems = NO;
-    } else {
-        self.currentPage++;
     }
 }
 
