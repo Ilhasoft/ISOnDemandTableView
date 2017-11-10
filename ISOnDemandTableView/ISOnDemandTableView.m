@@ -94,7 +94,7 @@
         [NSException raise:@"ISOnDemandTableViewDelegateNotSet" format:@"You must set the ISOnDemandTableViewDelegate before calling loadContent"];
     }
     
-    if (!compatRefreshControl.isRefreshing && self.tableFooterView == nil && !_ignoreLoadRequests) {
+    if (!self.interactor.isFetching && !_ignoreLoadRequests) {
         if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandWillStartLoading:)]) {
             [self.onDemandTableViewDelegate onDemandWillStartLoading:self];
         }

@@ -33,6 +33,7 @@
         NSLog(@"All items were already fetched");
         return;
     }
+    self.isFetching = YES;
     [self fetchObjectsForPage:self.currentPage withBlock: ^(NSArray *result, NSError *error) {
         for (NSUInteger i = 0; i < result.count; ++i) {
             NSObject *object = [result objectAtIndex:i];
@@ -59,6 +60,7 @@
     }
     self.currentPage = 0;
     self.hasMoreItems = YES;
+    self.isFetching = YES;
     [self fetchObjectsForPage:self.currentPage withBlock: ^(NSArray *result, NSError *error) {
         [self.objects removeAllObjects];
         for (NSUInteger i = 0; i < result.count; ++i) {
