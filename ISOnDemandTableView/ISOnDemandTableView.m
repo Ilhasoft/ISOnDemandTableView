@@ -210,6 +210,14 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandTableView:estimatedHeightForRowAtIndexPath:)]) {
+        return [self.onDemandTableViewDelegate onDemandTableView:self estimatedHeightForRowAtIndexPath:indexPath];
+    } else {
+        return UITableViewAutomaticDimension;
+    }
+}
+
 # pragma mark - ISOnDemandTableViewInteractorDelegate
 
 - (void)onObjectsFetched:(NSArray *)lastObjects error:(NSError *)error
@@ -222,7 +230,8 @@
     if (error == nil) {
         [self reloadData];
     }
-
+    
 }
 
 @end
+

@@ -21,6 +21,7 @@
 @optional - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView cell:(UITableViewCell * _Nonnull)cell willDisappearAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @optional - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
 @optional - (CGFloat)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@optional - (CGFloat)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @optional - (CGFloat)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView heightForHeaderAtSection:(NSInteger *)section;
 @optional - (UIView * _Nullable)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger *)section;
 
@@ -41,3 +42,4 @@
 - (void)setFooterSpinner;
 
 @end
+
