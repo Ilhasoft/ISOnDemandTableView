@@ -22,8 +22,8 @@
 @optional - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
 @optional - (CGFloat)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @optional - (CGFloat)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-@optional - (CGFloat)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView heightForHeaderAtSection:(NSInteger *)section;
-@optional - (UIView * _Nullable)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger *)section;
+@optional - (CGFloat)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView heightForHeaderAtSection:(NSInteger * _Nonnull)section;
+@optional - (UIView * _Nullable)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger * _Nonnull)section;
 
 - (void)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView onContentLoad:(NSArray * _Nullable)lastData withError:(NSError * _Nullable)error;
 - (NSString * _Nonnull)onDemandTableView:(ISOnDemandTableView * _Nonnull)tableView reuseIdentifierForCellAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
