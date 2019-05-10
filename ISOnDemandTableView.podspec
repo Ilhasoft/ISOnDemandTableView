@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "ISOnDemandTableView"
-  s.version          = "2.0.0"
+  s.version          = "1.0.1"
   s.summary          = "A standard implementation for on-demand content in tableView"
 
 # This description is used to generate tags and improve search results.
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/Ilhasoft/ISOnDemandTableView"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "Dielson Sales" => "dielson@ilhasoft.com.br" }
-  s.source           = { :git => "https://github.com/Ilhasoft/ISOnDemandTableView.git", :tag => "1.0.0" }
+  s.source           = { :git => "https://github.com/Ilhasoft/ISOnDemandTableView.git", :tag => "1.0.1" }
   s.social_media_url = "https://twitter.com/dielsonsaless"
 
   s.ios.deployment_target = '9.0'
