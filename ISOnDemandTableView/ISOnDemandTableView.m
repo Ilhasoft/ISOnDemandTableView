@@ -68,11 +68,24 @@
 
 - (void)onPullToRefresh
 {
+    //[self setFooterSpinner];
+    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandWillStartLoading:)]) {
+        [self.onDemandTableViewDelegate onDemandWillStartLoading:self];
+    }
+    
+    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandWasPulledToRefresh:)]) {
+        [self.onDemandTableViewDelegate onDemandWasPulledToRefresh:self];
+    }
+    
+    [self.interactor refreshAllContent];
+}
+
+- (void)setFooterSpinner
+{
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width, 30.0)];
     [spinner startAnimating];
     spinner.color = [UIColor grayColor];
     self.tableFooterView = spinner;
-    [self.interactor refreshAllContent];
 }
 
 - (void)loadContent
@@ -80,13 +93,17 @@
     if (self.onDemandTableViewDelegate == nil) {
         [NSException raise:@"ISOnDemandTableViewDelegateNotSet" format:@"You must set the ISOnDemandTableViewDelegate before calling loadContent"];
     }
-    [self.interactor loadItems];
-
-    if (self.interactor.hasMoreItems && self.tableFooterView == nil) {
-        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width, 30.0)];
-        [spinner startAnimating];
-        spinner.color = [UIColor grayColor];
-        self.tableFooterView = spinner;
+    
+    if (!self.interactor.isFetching && !_ignoreLoadRequests) {
+        if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandWillStartLoading:)]) {
+            [self.onDemandTableViewDelegate onDemandWillStartLoading:self];
+        }
+        [self.interactor loadItems];
+        
+        if (self.interactor.hasMoreItems && self.showFooterSpinner) {
+            self.showFooterSpinner = NO;
+            [self setFooterSpinner];
+        }
     }
 }
 
@@ -131,6 +148,7 @@
     CGFloat contentYOffset = self.contentOffset.y + self.frame.size.height;
     if (contentYOffset >= self.contentSize.height) {
         NSLog(@"Reached end of tableview");
+        self.showFooterSpinner = YES;
         [self loadContent];
     }
 }
@@ -141,6 +159,7 @@
         CGFloat contentYOffset = self.contentOffset.y + self.frame.size.height;
         if (contentYOffset >= self.contentSize.height) {
             NSLog(@"Reached end of tableview");
+            self.showFooterSpinner = YES;
             [self loadContent];
         }
     }
@@ -167,9 +186,33 @@
     }
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandTableView:viewForHeaderInSection:)]) {
+        return [self.onDemandTableViewDelegate onDemandTableView:self viewForHeaderInSection:&section];
+    } else {
+        return NULL;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandTableView:heightForHeaderAtSection:)]) {
+        return [self.onDemandTableViewDelegate onDemandTableView:self heightForHeaderAtSection:&section];
+    } else {
+        return UITableViewAutomaticDimension;
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandTableView:heightForRowAtIndexPath:)]) {
         return [self.onDemandTableViewDelegate onDemandTableView:self heightForRowAtIndexPath:indexPath];
+    } else {
+        return UITableViewAutomaticDimension;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.onDemandTableViewDelegate respondsToSelector:@selector(onDemandTableView:estimatedHeightForRowAtIndexPath:)]) {
+        return [self.onDemandTableViewDelegate onDemandTableView:self estimatedHeightForRowAtIndexPath:indexPath];
     } else {
         return UITableViewAutomaticDimension;
     }
@@ -179,17 +222,16 @@
 
 - (void)onObjectsFetched:(NSArray *)lastObjects error:(NSError *)error
 {
+    self.tableFooterView = nil;
     if (compatRefreshControl.isRefreshing) {
         [compatRefreshControl endRefreshing];
     }
-    if (lastObjects.count < self.interactor.paginationCount) {
-        self.tableFooterView = nil;
-    }
-    [self.onDemandTableViewDelegate onDemandTableView:self onContentLoadFinishedWithError:error];
+    [self.onDemandTableViewDelegate onDemandTableView:self onContentLoad:lastObjects withError:error];
     if (error == nil) {
         [self reloadData];
     }
-
+    
 }
 
 @end
+

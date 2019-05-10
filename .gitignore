@@ -1,6 +1,7 @@
 
 # Created by https://www.gitignore.io/api/xco,xcode,swift,objective-c
 *.DS_Store
+ISOnDemandTableView.xcodeproj/xcuserdata/
 
 #!! ERROR: xco is undefined. Use list command to see defined gitignore types !!#
 
